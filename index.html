@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Minimal Shop</title>
+</head>
+<body>
+
+    <h2>Products</h2>
+    <!-- Simple product listing -->
+    <div>Items: Backpack (\$50) | Shoes (\$80)</div>
+    <button onclick="add('Backpack', 50)">Add Backpack</button>
+    <button onclick="add('Shoes', 80)">Add Shoes</button>
+
+    <h2>Your Cart</h2>
+    <!-- Cart display area -->
+    <ul id="cart"></ul>
+    <h3>Total: \$<span id="total">0</span></h3>
+
+    <script>
+        let total = 0;
+        const cartList = document.getElementById('cart');
+        const totalSpan = document.getElementById('total');
+
+        function add(name, price) {
+            // Add item to the list
+            const li = document.createElement('li');
+            li.textContent = `${name} - $${price}`;
+            cartList.appendChild(li);
+
+            // Update running total
+            total += price;
+            totalSpan.textContent = total;
+        }
+    </script>
+
+</body>
+</html>
